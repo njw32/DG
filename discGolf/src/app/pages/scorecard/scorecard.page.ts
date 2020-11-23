@@ -7,9 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ScorecardPage implements OnInit {
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
   }
+
 
 }

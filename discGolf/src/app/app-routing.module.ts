@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { ScorecardPageModule } from './pages/scorecard/scorecard.module';
 
 const routes: Routes = [
   {
     path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+    loadChildren: () => import('./home/home.module').then(m => m.HomePageModule)
   },
   {
     path: '',
@@ -13,13 +14,13 @@ const routes: Routes = [
   },
   {
     path: 'scorecard',
-    loadChildren: () => import('./pages/scorecard/scorecard.module').then( m => m.ScorecardPageModule)
+    loadChildren: () => import('./pages/scorecard/scorecard.module').then(m => m.ScorecardPageModule)
   },
 ];
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
+    RouterModule.forRoot(routes)
   ],
   exports: [RouterModule]
 })

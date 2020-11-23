@@ -3,9 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
-
 import { ScorecardPageRoutingModule } from './scorecard-routing.module';
-
 import { ScorecardPage } from './scorecard.page';
 
 @NgModule({
@@ -17,4 +15,4 @@ import { ScorecardPage } from './scorecard.page';
   ],
   declarations: [ScorecardPage]
 })
-export class ScorecardPageModule {}
+export class ScorecardPageModule { }
