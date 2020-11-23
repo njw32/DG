@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-import { ScorecardPageModule } from './pages/scorecard/scorecard.module';
 
 const routes: Routes = [
   {

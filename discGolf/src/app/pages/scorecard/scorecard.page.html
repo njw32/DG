@@ -5,5 +5,14 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <p>This is the scorecard page</p>
+  <div class="holeCard">
+    <button class="arrowButtons" (click)="increaseScore()">
+      <ion-icon class="arrows" name="chevron-up-outline"></ion-icon>
+    </button>
+    <h1 class="score" [ngClass]="getScoreClass()">{{score}}</h1>
+    <button class="arrowButtons" (click)="decreaseScore()">
+      <ion-icon class="arrows" name="chevron-down-outline"></ion-icon>
+    </button>
+  </div>
+  <h3 class="holeNumber">Hole *</h3>
 </ion-content>
