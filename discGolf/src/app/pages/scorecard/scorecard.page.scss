@@ -1,0 +1,29 @@
+.holeNumber{
+  text-align: center;
+  margin-top: 10vh;
+}
+.holeCard{
+  text-align: center;
+  width: 30vw;
+  margin: auto;
+  margin-top: 20vh;
+}
+.arrows{
+  font-size: 10vw;
+}
+.score{
+  font-size: 10vw;
+}
+.arrowButtons{
+  background-color: transparent;
+  color:black;
+}
+.arrowButtons:hover{
+  background-color: lightgrey;
+}
+.under{
+  color: green;
+}
+.over{
+  color: red;
+}
