@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class ScorecardPage implements OnInit {
 
   score: string = '0';
+  listOfScores: string[] = [];
 
   constructor() {
   }
@@ -21,6 +22,9 @@ export class ScorecardPage implements OnInit {
       this.score = this.score.slice(1)
     }
     this.score = (parseInt(this.score) + 1).toString();
+    if (parseInt(this.score) > 0) {
+      this.score = "+" + this.score;
+    }
   }
 
   decreaseScore() {
@@ -28,16 +32,23 @@ export class ScorecardPage implements OnInit {
       this.score = this.score.slice(1)
     }
     this.score = (parseInt(this.score) - 1).toString();
+    if (parseInt(this.score) > 0) {
+      this.score = "+" + this.score;
+    }
   }
 
   getScoreClass(): string {
     if (parseInt(this.score) < 0) {
-      return "under"
+      return "under";
     }
     if (parseInt(this.score) > 0) {
-      this.score = "+" + this.score;
-      return "over"
+      return "over";
     }
+  }
+
+  nextHole() {
+    this.listOfScores.push(this.score);
+    this.score = "0";
   }
 
 

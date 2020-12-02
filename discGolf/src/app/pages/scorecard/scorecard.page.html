@@ -14,5 +14,16 @@
       <ion-icon class="arrows" name="chevron-down-outline"></ion-icon>
     </button>
   </div>
-  <h3 class="holeNumber">Hole *</h3>
+  <div class="textDiv">
+    <h3 class="holeNumber">Hole {{listOfScores.length + 1}}</h3>
+    <button class="next" (click)="nextHole()">Next
+      <ion-icon name="arrow-forward-outline"></ion-icon>
+    </button>
+  </div>
+  <div class="cardHolder" *ngFor="let sc of listOfScores; let i = index;">
+    <ion-card class="card">
+      <ion-card-header>Hole {{i + 1}}</ion-card-header>
+      <ion-card-content>{{sc}}</ion-card-content>
+    </ion-card>
+  </div>
 </ion-content>
