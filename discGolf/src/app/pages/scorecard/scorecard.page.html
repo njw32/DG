@@ -26,4 +26,7 @@
       <ion-card-content>{{sc}}</ion-card-content>
     </ion-card>
   </div>
+  <div>
+    <button *ngIf="listOfScores.length > 8" (click)="submitCard()">Submit</button>
+  </div>
 </ion-content>

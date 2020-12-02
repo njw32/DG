@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-scorecard',
@@ -10,7 +11,7 @@ export class ScorecardPage implements OnInit {
   score: string = '0';
   listOfScores: string[] = [];
 
-  constructor() {
+  constructor(private db: AngularFirestore) {
   }
 
 
@@ -49,6 +50,10 @@ export class ScorecardPage implements OnInit {
   nextHole() {
     this.listOfScores.push(this.score);
     this.score = "0";
+  }
+
+  submitCard() {
+    console.log("submitted");
   }
 
 
