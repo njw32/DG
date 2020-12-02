@@ -16,6 +16,7 @@ export class NewGamePage implements OnInit {
   ngOnInit() {
   }
 
+  //submit button takes user to scorecard with form input parameters
   goToScorecard() {
     const dest = `/scorecard/${this.courseName}/${this.coursePar}`;
     this.router.navigateByUrl(dest);

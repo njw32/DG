@@ -14,7 +14,7 @@ export class ScorecardPage implements OnInit {
   score: string = '0';
   listOfScores: string[] = [];
 
-  //declaring the coursename and par for that course - will later be implemented by user and maybe even pulled from api
+  //declaring the coursename and par for that course parameters from new-game user input - maybe later pulled from course api - also will pass username
   courseName: string;
   coursePar: number;
 
@@ -22,6 +22,7 @@ export class ScorecardPage implements OnInit {
   }
 
   ngOnInit() {
+    //sets courseName and coursePar to incoming parameters
     this.courseName = this.actRt.snapshot.paramMap.get('courseName');
     this.coursePar = parseInt(this.actRt.snapshot.paramMap.get('coursePar'));
   }
