@@ -25,3 +25,9 @@
 #container a {
   text-decoration: none;
 }
+
+// scrollable feature for the "course round cards"
+.course_cards {
+  height: 75%;
+  overflow: auto;
+}

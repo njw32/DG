@@ -14,7 +14,15 @@ const routes: Routes = [
   {
     path: 'scorecard',
     loadChildren: () => import('./pages/scorecard/scorecard.module').then(m => m.ScorecardPageModule)
+  },  {
+    path: 'new-game',
+    loadChildren: () => import('./pages/new-game/new-game.module').then( m => m.NewGamePageModule)
   },
+  {
+    path: 'the-bag',
+    loadChildren: () => import('./pages/the-bag/the-bag.module').then( m => m.TheBagPageModule)
+  },
+
 ];
 
 @NgModule({

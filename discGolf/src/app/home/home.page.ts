@@ -19,4 +19,13 @@ export class HomePage {
       console.log(this.rounds);
     });
   }
+
+  // returns the sum of number values from an array
+  // reference: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce
+  totalShotSum(shot_array) {
+    let total_sum = shot_array.reduce((accumulatedValue, currentValue) => accumulatedValue + currentValue, 0)
+    return total_sum;
+  }
 }
+
+
