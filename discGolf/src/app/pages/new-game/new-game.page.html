@@ -8,5 +8,11 @@
   <h1>This is the New Game page</h1>
   <br>
   <br>
-  <ion-button [routerLink]="['/scorecard']">Go to the Scorecard page</ion-button>
+  <form #f="ngForm">
+    <label> Course Name: </label>
+    <input type="text" [(ngModel)]="courseName" name="course" required>
+    <label> Course Par: </label>
+    <input type="number" [(ngModel)]="coursePar" name="par">
+    <ion-button type="submit" (click)="goToScorecard()" [disabled]="!f.valid">Go to the Scorecard page</ion-button>
+  </form>
 </ion-content>

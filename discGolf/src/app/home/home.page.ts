@@ -23,6 +23,9 @@ export class HomePage {
   // returns the sum of number values from an array
   // reference: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce
   totalShotSum(shot_array) {
+    for (let i = 0; i < shot_array.length; i++) {
+      shot_array[i] = parseInt(shot_array[i])
+    }
     let total_sum = shot_array.reduce((accumulatedValue, currentValue) => accumulatedValue + currentValue, 0)
     return total_sum;
   }
