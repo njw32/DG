@@ -8,4 +8,8 @@
 
 <ion-content [fullscreen]="true">
   <p>This is the home page</p>
+  <div class="list" *ngFor="let round of rounds">
+    <span class="timestamp"> {{round.Date.toDate() | date:"medium"}} </span>
+    <span>{{round.CourseName}}</span>
+  </div>
 </ion-content>

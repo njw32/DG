@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-home',
@@ -6,7 +7,16 @@ import { Component } from '@angular/core';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
+  rounds: any[];
+  constructor(
+    private db: AngularFirestore,
+  ) { }
 
-  constructor() {}
-
+  //reading in the games in the database storing to variable this.rounds which is called in html
+  async ngOnInit() {
+    this.db.collection('games', ref => ref.orderBy('Date')).valueChanges().subscribe(res => {
+      this.rounds = res;
+      console.log(this.rounds);
+    });
+  }
 }
