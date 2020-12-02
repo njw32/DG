@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-new-game',
@@ -7,11 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NewGamePage implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   courseName: string;
+  coursePar: number;
 
   ngOnInit() {
+  }
+
+  goToScorecard() {
+    const dest = `/scorecard/${this.courseName}/${this.coursePar}`;
+    this.router.navigateByUrl(dest);
   }
 
 }

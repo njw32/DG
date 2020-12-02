@@ -12,15 +12,16 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'scorecard',
+    path: 'scorecard/:courseName/:coursePar',
     loadChildren: () => import('./pages/scorecard/scorecard.module').then(m => m.ScorecardPageModule)
-  },  {
+  },
+  {
     path: 'new-game',
-    loadChildren: () => import('./pages/new-game/new-game.module').then( m => m.NewGamePageModule)
+    loadChildren: () => import('./pages/new-game/new-game.module').then(m => m.NewGamePageModule)
   },
   {
     path: 'the-bag',
-    loadChildren: () => import('./pages/the-bag/the-bag.module').then( m => m.TheBagPageModule)
+    loadChildren: () => import('./pages/the-bag/the-bag.module').then(m => m.TheBagPageModule)
   },
 
 ];

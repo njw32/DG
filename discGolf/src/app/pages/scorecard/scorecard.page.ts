@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { ActivatedRoute } from '@angular/router';
 
 interface Round { Date: any; Scores: string[]; CourseName: string; CoursePar: number; }
 
@@ -14,13 +15,15 @@ export class ScorecardPage implements OnInit {
   listOfScores: string[] = [];
 
   //declaring the coursename and par for that course - will later be implemented by user and maybe even pulled from api
-  courseName: string = "Garfield Park";
-  coursePar: number = 27;
+  courseName: string;
+  coursePar: number;
 
-  constructor(private db: AngularFirestore) {
+  constructor(private db: AngularFirestore, private actRt: ActivatedRoute) {
   }
 
   ngOnInit() {
+    this.courseName = this.actRt.snapshot.paramMap.get('courseName');
+    this.coursePar = parseInt(this.actRt.snapshot.paramMap.get('coursePar'));
   }
 
   //functions for increase, decrease, next buttons on the page
