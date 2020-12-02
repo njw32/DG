@@ -13,6 +13,8 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { firebaseConfig } from './credentials';
 import { ComponentsModule } from './components/components.module';
 
+import { FormsModule } from '@angular/forms';
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -22,6 +24,7 @@ import { ComponentsModule } from './components/components.module';
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFirestoreModule,
     ComponentsModule,
+    FormsModule,
   ],
 
 

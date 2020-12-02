@@ -9,6 +9,8 @@ export class NewGamePage implements OnInit {
 
   constructor() { }
 
+  courseName: string;
+
   ngOnInit() {
   }
 
