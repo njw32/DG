@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 
+interface Round { Date: any; Scores: string[]; CourseName: string; CoursePar: number; }
+
 @Component({
   selector: 'app-scorecard',
   templateUrl: './scorecard.page.html',
@@ -10,6 +12,8 @@ export class ScorecardPage implements OnInit {
 
   score: string = '0';
   listOfScores: string[] = [];
+  courseName: string = "Garfield Park";
+  coursePar: number = 27;
 
   constructor(private db: AngularFirestore) {
   }
@@ -54,6 +58,12 @@ export class ScorecardPage implements OnInit {
 
   submitCard() {
     console.log("submitted");
+    this.db.collection<Round>("games").add({
+      Date: new Date(),
+      Scores: this.listOfScores,
+      CourseName: this.courseName,
+      CoursePar: this.coursePar,
+    });
   }
 
 
