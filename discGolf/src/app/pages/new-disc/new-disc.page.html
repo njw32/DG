@@ -5,5 +5,39 @@
 </ion-header>
 
 <ion-content>
-
+  <form #f="ngForm">
+    <label> Disc Name </label>
+    <input type="text" [(ngModel)]="discName" name="disc" required>
+    <br>
+    <label> Disc Manufacturer </label>
+    <input type="text" [(ngModel)]="discManufacturer" name="manufacturer">
+    <br>
+    <label> Disc Plastic </label>
+    <input type="text" [(ngModel)]="discPlastic" name="plastic">
+    <br>
+    <label> Disc Weight </label>
+    <input type="text" [(ngModel)]="discWeight" name="weight">
+    <br>
+    <label> Disc Type </label>
+    <select [(ngModel)]="discType" name="type">
+      <option value="Driver">Driver</option>
+      <option value="Fairway">Fairway</option>
+      <option value="Midrange">Midrange</option>
+      <option value="Putter">Putter</option>
+    </select>
+    <br>
+    <label>Speed</label>
+    <input type="number" [(ngModel)]="discSpeed" name="speed">
+    <br>
+    <label>Glide</label>
+    <input type="number" [(ngModel)]="discGlide" name="glide">
+    <br>
+    <label>Turn</label>
+    <input type="number" [(ngModel)]="discTurn" name="turn">
+    <br>
+    <label>Fade</label>
+    <input type="number" [(ngModel)]="discFade" name="fade">
+    <br>
+    <ion-button type="submit" (click)="submitDisc()" [disabled]="!f.valid">Submit Disc</ion-button>
+  </form>
 </ion-content>
