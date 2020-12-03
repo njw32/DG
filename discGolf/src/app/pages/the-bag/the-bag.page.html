@@ -6,5 +6,11 @@
 
 <ion-content>
   <h1>This is the The Bag page</h1>
-  <app-disc-card></app-disc-card>
+  <div class="disc_cards">
+    <div *ngFor="let disc of discs">
+      <app-disc-card discName="{{disc.Name}}" discManufacturer="{{disc.Manufacturer}}" discPlastic="{{disc.Plastic}}"
+        discType="{{disc.Type}}" discWeight="{{disc.Weight}}" discSpeed="{{disc.Speed}}" discGlide="{{disc.Glide}}"
+        discTurn="{{disc.Turn}}" discFade="{{disc.Fade}}"></app-disc-card>
+    </div>
+  </div>
 </ion-content>
