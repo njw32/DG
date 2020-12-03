@@ -1,23 +1,41 @@
 <ion-card>
   <ion-card-header>
-    <h2 class="disc-card-header">{{ discName }}</h2>
+    <h1 class="disc-card-header">{{ discName }}</h1>
   </ion-card-header>
 
   <ion-card-content>
-    <h2>Manufacturer</h2>
-    <p> {{ discManufacturer }}</p>
-    <h2>Plastic</h2>
-    <p> {{ discPlastic }}</p>
-    <h2>Type</h2>
-    <p> {{ discType }} </p>
-    <h2>Weight</h2>
-    <p> {{ discWeight }}</p>
-    <h2>Characteristics</h2>
-    <p>
-      <span> {{ discSpeed }} </span>
-      <span> {{ discGlide }} </span>
-      <span> {{ discTurn }} </span>
-      <span> {{ discFade }} </span>
-    </p>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <h2 class="header">Manufacturer</h2>
+          <p> {{ discManufacturer }}</p>
+        </ion-col>
+        <ion-col>
+          <h2 class="header">Plastic</h2>
+          <p> {{ discPlastic }}</p>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <h2 class="header">Type</h2>
+          <p> {{ discType }} </p>
+        </ion-col>
+        <ion-col>
+          <h2 class="header">Weight</h2>
+          <p> {{ discWeight }}</p>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <h2 class="header">Characteristics</h2>
+          <p>
+            <span> {{ discSpeed }} </span>
+            <span> {{ discGlide }} </span>
+            <span> {{ discTurn }} </span>
+            <span> {{ discFade }} </span>
+          </p>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
   </ion-card-content>
 </ion-card>
