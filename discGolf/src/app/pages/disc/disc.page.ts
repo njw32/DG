@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
 
+//page for updating and deleting discs and displaying them on their on page
+
 @Component({
   selector: 'app-disc',
   templateUrl: './disc.page.html',
