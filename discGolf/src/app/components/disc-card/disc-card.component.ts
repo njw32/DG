@@ -15,9 +15,13 @@ export class DiscCardComponent implements OnInit {
   @Input() discGlide: number;
   @Input() discTurn: number;
   @Input() discFade: number;
+  @Input() discID: any;
 
   constructor() { }
 
   ngOnInit() { }
 
+  goToSpecificDisc() {
+    console.log('going...');
+  }
 }

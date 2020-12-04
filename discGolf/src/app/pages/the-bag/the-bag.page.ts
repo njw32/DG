@@ -11,9 +11,8 @@ export class TheBagPage implements OnInit {
   constructor(private db: AngularFirestore) { }
 
   async ngOnInit() {
-    this.db.collection('discs').valueChanges().subscribe(res => {
+    this.db.collection('discs').snapshotChanges().subscribe(res => {
       this.discs = res;
-      console.log(this.discs);
     });
   }
 }
