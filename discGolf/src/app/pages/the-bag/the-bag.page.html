@@ -8,7 +8,7 @@
   <h1>This is the The Bag page</h1>
   <div class="disc_cards">
     <div *ngFor="let disc of discs">
-      <app-disc-card discName="{{disc.payload.doc.data().Name}}"
+      <app-disc-card [routerLink]="'/disc/' + disc.payload.doc.id" discName="{{disc.payload.doc.data().Name}}"
         discManufacturer="{{disc.payload.doc.data().Manufacturer}}" discPlastic="{{disc.payload.doc.data().Plastic}}"
         discType="{{disc.payload.doc.data().Type}}" discWeight="{{disc.payload.doc.data().Weight}}"
         discSpeed="{{disc.payload.doc.data().Speed}}" discGlide="{{disc.payload.doc.data().Glide}}"
