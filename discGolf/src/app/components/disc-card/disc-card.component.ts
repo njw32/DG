@@ -20,8 +20,4 @@ export class DiscCardComponent implements OnInit {
   constructor() { }
 
   ngOnInit() { }
-
-  goToSpecificDisc() {
-    console.log('going...');
-  }
 }
