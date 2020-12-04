@@ -1,16 +1,14 @@
 <ion-header>
   <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-back-button defaultHref="home"></ion-back-button>
-    </ion-buttons>
     <ion-title>New Game</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <h1>This is the New Game page</h1>
+  <br>
+  <br>
   <form #f="ngForm">
-    <br>
-    <br>
     <label> Course Name: </label>
     <input type="text" [(ngModel)]="courseName" name="course" required>
     <label> Course Par: </label>

@@ -1,17 +1,9 @@
 <ion-header>
   <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-back-button defaultHref="home"></ion-back-button>
-    </ion-buttons>
     <ion-title>The Bag</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <div class="disc_cards">
-    <div class="list" *ngFor="let disc of disc_bag">
-      <app-bag-disc-cards disc_name={{disc.Name}} disc_type={{disc.Type}} manufacturer={{disc.Manufacturer}}>
-      </app-bag-disc-cards>
-    </div>
-  </div>
+<ion-content>
+  <h1>This is the The Bag page</h1>
 </ion-content>
