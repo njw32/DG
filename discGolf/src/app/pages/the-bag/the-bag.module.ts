@@ -8,13 +8,16 @@ import { TheBagPageRoutingModule } from './the-bag-routing.module';
 
 import { TheBagPage } from './the-bag.page';
 
+import { ComponentsModule } from 'src/app/components/components.module';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    TheBagPageRoutingModule
+    TheBagPageRoutingModule,
+    ComponentsModule,
   ],
   declarations: [TheBagPage]
 })
-export class TheBagPageModule {}
+export class TheBagPageModule { }

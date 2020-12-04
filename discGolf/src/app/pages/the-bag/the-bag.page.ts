@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-the-bag',
@@ -6,10 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./the-bag.page.scss'],
 })
 export class TheBagPage implements OnInit {
+  discs: any[];
+  constructor(private db: AngularFirestore) { }
 
-  constructor() { }
-
-  ngOnInit() {
+  async ngOnInit() {
+    this.db.collection('discs').snapshotChanges().subscribe(res => {
+      this.discs = res;
+    });
   }
-
 }
