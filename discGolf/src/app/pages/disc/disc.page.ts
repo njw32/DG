@@ -10,22 +10,19 @@ import { Router } from '@angular/router';
   styleUrls: ['./disc.page.scss'],
 })
 export class DiscPage implements OnInit {
-  id: string;
+  id: string = this.router.url.slice(6);
+  disc: {} = { Name: "Disc", Manufacturer: "Manufacturer", Plastic: "Plastic", Type: "Type", Glide: "Glide", Speed: "Speed", Turn: "Turn", Fade: "Fade" };
 
   constructor(private router: Router, private db: AngularFirestore) { }
 
-  ngOnInit() {
-    this.id = this.router.url.slice(6);
-    this.db.collection('discs').doc(this.id).ref.get().then(function (doc) {
-      if (doc.exists) {
-        console.log(doc.data());
-      } else {
-        console.log('no doc');
-      }
-    }).catch(function (error) {
-      console.log(error);
-    });
+  async ngOnInit() {
+    const res = await this.db.doc('/discs/' + this.id).ref.get();
+    this.disc = res.data();
+    console.log(this.disc);
+  }
 
-
+  deleteDisc() {
+    this.db.doc('/discs/' + this.id).delete();
+    this.router.navigateByUrl('/the-bag');
   }
 }
