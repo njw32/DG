@@ -8,14 +8,20 @@
 </ion-header>
 
 <ion-content>
-  <h1>This is the New Game page</h1>
+  <h1>Please enter the following information:</h1>
   <br>
   <br>
   <form #f="ngForm">
-    <label> Course Name: </label>
+    <label class="nameInput"> Course Name:</label>&nbsp;
     <input type="text" [(ngModel)]="courseName" name="course" required>
-    <label> Course Par: </label>
+    <br>
+    <br>
+    <br>
+    <label class="parInput"> Course Par:</label>&nbsp;
     <input type="number" [(ngModel)]="coursePar" name="par">
+    <br>
+    <br>
+    <br>
     <ion-button type="submit" (click)="goToScorecard()" [disabled]="!f.valid">Go to the Scorecard page</ion-button>
   </form>
 </ion-content>

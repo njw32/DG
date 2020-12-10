@@ -18,6 +18,7 @@
       <ion-icon name="basket"></ion-icon>
     </ion-fab-button>
   </ion-fab>
+  <h1 class="titleText">Previous Games:</h1>
   <div class="course_cards">
     <div class="list" *ngFor="let round of rounds">
       <app-course-round-cards course_name={{round.CourseName}} date={{round.Date.toDate()}}
