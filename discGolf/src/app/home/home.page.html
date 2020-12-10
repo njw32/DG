@@ -8,9 +8,16 @@
 
 
 <ion-content [fullscreen]="true">
-  <p>This is the home page</p>
-  <br>
-  <br>
+  <ion-fab class="fab" vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button [routerLink]="['/new-game']">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  <ion-fab class="fab" vertical="bottom" horizontal="start" slot="fixed">
+    <ion-fab-button [routerLink]="['/the-bag']">
+      <ion-icon name="basket"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
   <div class="course_cards">
     <div class="list" *ngFor="let round of rounds">
       <app-course-round-cards course_name={{round.CourseName}} date={{round.Date.toDate()}}
@@ -18,13 +25,6 @@
       </app-course-round-cards>
     </div>
   </div>
-  <br>
-  <br>
-  <ion-button [routerLink]="['/new-game']">Go to the New Game page</ion-button>
-  <br>
-  <br>
-  <br>
-  <ion-button [routerLink]="['/the-bag']">Go to the The Bag page</ion-button>
 </ion-content>
 
 
