@@ -1,32 +1,62 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>scorecard</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="new-page"></ion-back-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <div class="holeCard">
-    <button class="arrowButtons" (click)="increaseScore()">
-      <ion-icon class="arrows" name="chevron-up-outline"></ion-icon>
-    </button>
-    <h1 class="score" [ngClass]="getScoreClass()">{{score}}</h1>
-    <button class="arrowButtons" (click)="decreaseScore()">
-      <ion-icon class="arrows" name="chevron-down-outline"></ion-icon>
-    </button>
-  </div>
-  <div class="textDiv">
-    <h3 class="holeNumber">Hole {{listOfScores.length + 1}}</h3>
-    <button class="next" (click)="nextHole()">Next
-      <ion-icon name="arrow-forward-outline"></ion-icon>
-    </button>
-  </div>
-  <div class="cardHolder" *ngFor="let sc of listOfScores; let i = index;">
-    <ion-card class="card">
-      <ion-card-header>Hole {{i + 1}}</ion-card-header>
-      <ion-card-content>{{sc}}</ion-card-content>
-    </ion-card>
-  </div>
-  <div>
-    <button *ngIf="listOfScores.length > 8" (click)="submitCard()">Submit</button>
-  </div>
+  <ion-grid class="cardGrid">
+    <ion-row>
+      <ion-col>
+        <button class="submitButton" *ngIf="listOfScores.length > 8" (click)="submitCard()">Game Complete</button>
+      </ion-col>
+      <ion-col>
+        <div class="holeCard">
+          <button class="arrowButtons" (click)="increaseScore()">
+            <ion-icon class="arrows" name="chevron-up-outline"></ion-icon>
+          </button>
+          <h1 class="score" [ngClass]="getScoreClass()">{{score}}</h1>
+          <button class="arrowButtons" (click)="decreaseScore()">
+            <ion-icon class="arrows" name="chevron-down-outline"></ion-icon>
+          </button>
+        </div>
+      </ion-col>
+      <ion-col>
+        <!-- <ion-card>
+
+          <ion-card-header>Total Par Difference:</ion-card-header>
+          <ion-card-content>{{totalParDifference}}</ion-card-content>
+        </ion-card>
+      -->
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="textDiv">
+      <ion-col>
+        <button class="back" *ngIf="listOfScores.length >= 1" (click)="previousHole()">Back
+          <ion-icon name="arrow-back-outline"></ion-icon>
+        </button>
+      </ion-col>
+      <ion-col>
+        <h3 class="holeNumber">Hole {{listOfScores.length + 1}}</h3>
+      </ion-col>
+      <ion-col>
+        <button class="next" (click)="nextHole()">Next
+          <ion-icon name="arrow-forward-outline"></ion-icon>
+        </button>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="cardHolder" *ngFor="let sc of listOfScores; let i = index;">
+      <ion-col>
+        <ion-card class="card" color={{listOfColors[i]}}>
+          <ion-card-header>Hole {{i + 1}}</ion-card-header>
+          <ion-card-content>{{sc}}</ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
