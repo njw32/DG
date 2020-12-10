@@ -1,45 +1,90 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>disc</ion-title>
+    <ion-title>Edit Disc</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <form #f="ngForm">
-    <label> Disc Name </label>
-    <input type="text" [(ngModel)]="discName" name="disc" required>
-    <br>
-    <label> Disc Manufacturer </label>
-    <input type="text" [(ngModel)]="discManufacturer" name="manufacturer">
-    <br>
-    <label> Disc Plastic </label>
-    <input type="text" [(ngModel)]="discPlastic" name="plastic">
-    <br>
-    <label> Disc Weight </label>
-    <input type="text" [(ngModel)]="discWeight" name="weight">
-    <br>
-    <label> Disc Type </label>
-    <select [(ngModel)]="discType" name="type">
-      <option value="Driver">Driver</option>
-      <option value="Fairway">Fairway</option>
-      <option value="Midrange">Midrange</option>
-      <option value="Putter">Putter</option>
-    </select>
-    <br>
-    <label>Speed</label>
-    <input type="number" [(ngModel)]="discSpeed" name="speed">
-    <br>
-    <label>Glide</label>
-    <input type="number" [(ngModel)]="discGlide" name="glide">
-    <br>
-    <label>Turn</label>
-    <input type="number" [(ngModel)]="discTurn" name="turn">
-    <br>
-    <label>Fade</label>
-    <input type="number" [(ngModel)]="discFade" name="fade">
-    <br>
-    <ion-button type="submit" (click)="editDisc()">Submit Edited Disc</ion-button>
+    <ion-grid class="grid">
+      <ion-row>
+        <ion-col class="leftSide">
+          <label> Disc Name </label>
+        </ion-col>
+        <ion-col class="rightSide">
+          <input type="text" [(ngModel)]="discName" name="disc" required>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="leftSide">
+          <label> Disc Manufacturer </label>
+        </ion-col>
+        <ion-col class="rightSide">
+          <input type="text" [(ngModel)]="discManufacturer" name="manufacturer">
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="leftSide">
+          <label> Disc Plastic </label>
+        </ion-col>
+        <ion-col class="rightSide">
+          <input type="text" [(ngModel)]="discPlastic" name="plastic">
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="leftSide">
+          <label> Disc Weight </label>
+        </ion-col>
+        <ion-col class="rightSide">
+          <input type="text" [(ngModel)]="discWeight" name="weight">
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="leftSide">
+          <label> Disc Type </label>
+        </ion-col>
+        <ion-col class="rightSide">
+          <select [(ngModel)]="discType" name="type">
+            <option value="Driver">Driver</option>
+            <option value="Fairway">Fairway</option>
+            <option value="Midrange">Midrange</option>
+            <option value="Putter">Putter</option>
+          </select>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="leftSide">
+          <label>Speed</label>
+        </ion-col>
+        <ion-col class="rightSide">
+          <input type="number" [(ngModel)]="discSpeed" name="speed">
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="leftSide">
+          <label>Glide</label>
+        </ion-col>
+        <ion-col class="rightSide">
+          <input type="number" [(ngModel)]="discGlide" name="glide">
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="leftSide">
+          <label>Turn</label>
+        </ion-col>
+        <ion-col class="rightSide">
+          <input type="number" [(ngModel)]="discTurn" name="turn">
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="leftSide">
+          <label>Fade</label>
+        </ion-col>
+        <ion-col class="rightSide">
+          <input type="number" [(ngModel)]="discFade" name="fade">
+        </ion-col>
+      </ion-row>
+      <ion-button type="submit" (click)="editDisc()" [disabled]="!f.valid">Confirm Changes</ion-button>
+    </ion-grid>
   </form>
-
-  <ion-button (click)="deleteDisc()">Remove Disc</ion-button>
 </ion-content>
