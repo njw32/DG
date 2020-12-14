@@ -1,12 +1,27 @@
+ion-card{
+  background: white;
+}
 
 // course name formatting
 .cr_header {
-  padding-bottom: 1.75%;
-  border-bottom: 0.25px solid grey;
+  //padding-bottom: 1.75%;
+  //padding-bottom: 1%;
+  //padding-top: -5%;
+  border-bottom: 0.25px solid rgb(62, 136, 136);
+  color: rgb(62, 136, 136);
 }
 
 // "date", "shot", "par" title formatting
 .cr_col_title {
   font-size: 125%;
+  color: rgb(62, 136, 136);
+  text-align: center;
 }
 
+div{
+  //position: absolute;
+  text-align: center;
+  //bottom: 0;
+  //width: 100%;
+
+}

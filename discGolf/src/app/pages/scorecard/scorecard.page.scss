@@ -1,3 +1,11 @@
+ion-toolbar{
+  --background: rgb(62, 136, 136);
+  --color: white;
+}
+
+ion-content{
+  --ion-background-color: rgb(224, 236, 236);
+}
 .arrowContent{
   align-items: center;
 }
@@ -10,14 +18,14 @@
   text-align: center;
   width: 30vw;
   margin: auto;
-  margin-top: 3vh;
-  margin-bottom: 5vh;
+  margin-top: 2vh;
+  margin-bottom: 2vh;
 }
 .arrows{
-  font-size: 10vw;
+  font-size: 12vw;
 }
 .score{
-  font-size: 10vw;
+  font-size: 12vw;
 }
 .arrowButtons{
   background-color: transparent;
@@ -36,64 +44,53 @@
 
 .textDiv{
   align-items: center;
+  //background-color: rgb(62, 136, 136);
   //display: inline-block;
   //width: 100%;
   //vertical-align: middle;
-  outline-color: white;
-  outline-style: solid;
+
+  //outline-color: rgb(62, 136, 136);
+  //outline-style: solid;
+  border-top: 0.75px solid rgb(62, 136, 136);
+  border-bottom: 0.75px solid rgb(62, 136, 136);
 }
 
 
 .next{
   float: right;
-  font-size: 4vw;
+  font-size: 5vw;
   background-color: lightblue;
   border-radius: 12px;
   margin-right: 2vw;
 }
 
 .back{
-  font-size: 4vw;
+  font-size: 5vw;
   background-color: lightblue;
   border-radius: 12px;
   margin-left: 2vw;
 }
+
 .holeNumber{
-  font-size: 4vw;
+  font-size: 6vw;
   //margin-bottom: 3vw;
 }
 
 .cardHolder{
   display: inline-block;
-  margin-left: 0.25vw;
-}
-
-.card{
-  width: 10vw;
-  height: 9vw;
-  margin-right: .005vw;
-  text-align: center;
-}
-
-.card ion-card-header{
-  font-weight: bold;
-  font-size: 1.5vw;
-  text-decoration: underline;
-
-}
-
-.card ion-card-content{
-  font-size: 2.5vw;
+  margin-left: 1.5vw;
+  height: 25%;
+  align-items: center;
+  justify-content: center;
 }
 
 .submitButton{
   font-size: 3vw;
   color: white;
-  text-shadow: 0.025vh;
+  text-align: center;
   background-color: #eb445a;
   border-radius: 8px;
-  margin-left: 2vw;
-  outline-color: black;
-  outline-style: solid;
+  margin-right: 2vw;
+
 
 }

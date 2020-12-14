@@ -1,11 +1,10 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Home
+      Previous Rounds
     </ion-title>
   </ion-toolbar>
 </ion-header>
-
 
 <ion-content [fullscreen]="true">
   <ion-fab class="fab" vertical="bottom" horizontal="end" slot="fixed">
@@ -18,37 +17,11 @@
       <ion-icon name="basket"></ion-icon>
     </ion-fab-button>
   </ion-fab>
-  <h1 class="titleText">Previous Games:</h1>
   <div class="course_cards">
     <div class="list" *ngFor="let round of rounds">
-      <app-course-round-cards course_name={{round.CourseName}} date={{round.Date.toDate()}}
-        shot={{totalShotSum(round.Scores)}} par={{round.CoursePar}}>
+      <app-course-round-cards (click)="goToCourseInfo(round)" course_name={{round.CourseName}}
+        date={{round.Date.toDate()}} shot={{totalShotSum(round.Scores)}} par={{round.CoursePar}}>
       </app-course-round-cards>
     </div>
   </div>
 </ion-content>
-
-
-
-
-<!-- Previous code, may be useful to look back at-->
-<!--
-<ion-content [fullscreen]="true">
-  <p>This is the home page</p>
-  <div class="list" *ngFor="let round of rounds">
-    <span class="timestamp"> {{round.Date.toDate() | date:"medium"}} </span>
-    <span>{{round.CourseName}}</span>
-  </div>
-  <br>
-  <br>
-  <br>
-  <app-course-round-cards></app-course-round-cards>
-  <br>
-  <br>
-  <ion-button [routerLink]="['/new-game']">Go to the New Game page</ion-button>
-  <br>
-  <br>
-  <br>
-  <ion-button [routerLink]="['/the-bag']">Go to the The Bag page</ion-button>
-</ion-content>
--->

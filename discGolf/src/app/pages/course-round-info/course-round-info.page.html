@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Previous Round Info</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <h3>Date:</h3>
+        <h4>{{this.selectedDate  | date:'MMM d, y'}}</h4>
+      </ion-col>
+      <ion-col>
+        <h3>Time:</h3>
+        <h4>{{this.selectedDate  | date:'h:mm a'}}</h4>
+      </ion-col>
+      <ion-col>
+        <h3>Number of Holes Played:</h3>
+        <h4>{{item.Scores.length}}</h4>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+
+      </ion-col>
+    </ion-row>
+    <ion-row class="cardHolder" *ngFor="let sc of item.Scores; let i = index;">
+      <app-score-board scoreValue={{sc}} holeNumber={{i}}></app-score-board>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

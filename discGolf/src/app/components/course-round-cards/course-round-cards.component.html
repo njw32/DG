@@ -2,14 +2,14 @@
   <ion-card-header>
     <h2 class="cr_header">{{ course_name }}</h2>
   </ion-card-header>
-
   <ion-card-content>
     <ion-grid>
       <ion-row>
         <ion-col>
           <h2 class="cr_col_title">Date:</h2>
           <br>
-          <div>{{date | date:'MMM d, y, h:mm a'}}</div>
+          <!--<div>{{date | date:'MMM d, y, h:mm a'}}</div>-->
+          <div>{{date | date:'MMM d, y'}}</div>
         </ion-col>
         <ion-col>
           <h2 class="cr_col_title">Score:</h2>
@@ -17,7 +17,7 @@
           <div>{{shot}}</div>
         </ion-col>
         <ion-col>
-          <h2 class="cr_col_title">Course Par:</h2>
+          <h2 class="cr_col_title">Par:</h2>
           <br>
           <div>{{par}}</div>
         </ion-col>
