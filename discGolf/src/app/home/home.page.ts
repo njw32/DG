@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { NavigationExtras, Router } from '@angular/router';
-import { reverse } from 'dns';
 
 @Component({
   selector: 'app-home',
