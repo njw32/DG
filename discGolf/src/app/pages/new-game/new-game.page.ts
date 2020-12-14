@@ -12,13 +12,14 @@ export class NewGamePage implements OnInit {
 
   courseName: string;
   coursePar: number;
+  numberBaskets: number;
 
   ngOnInit() {
   }
 
   //submit button takes user to scorecard with form input parameters
   goToScorecard() {
-    const dest = `/scorecard/${this.courseName}/${this.coursePar}`;
+    const dest = `/scorecard/${this.numberBaskets}/${this.courseName}/${this.coursePar}`;
     this.router.navigateByUrl(dest);
   }
 

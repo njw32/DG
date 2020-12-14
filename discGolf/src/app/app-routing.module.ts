@@ -12,7 +12,7 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'scorecard/:courseName/:coursePar',
+    path: 'scorecard/:numberBaskets/:courseName/:coursePar',
     loadChildren: () => import('./pages/scorecard/scorecard.module').then(m => m.ScorecardPageModule)
   },
   {
