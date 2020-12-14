@@ -2,14 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
 
-interface round {
-  CourseName: string;
-  CoursePar: number;
-  Date: string;
-  Scores: string[];
-}
-
-
 @Component({
   selector: 'app-course-round-info',
   templateUrl: './course-round-info.page.html',
@@ -17,24 +9,25 @@ interface round {
 })
 
 export class CourseRoundInfoPage implements OnInit {
+  selectedDate: Date;
+  item: any;
 
-  id: string = this.router.url.slice(6);
-  round: round = { CourseName: "CourseName", CoursePar: 0, Date: "December 1, 1970 at 20:00:00 PM UTC-5", Scores: [] };
-
-  roundName: string;
-  roundPar: number;
-  roundDate: string;
-  roundScores: string[];
-
-  constructor(private router: Router, private db: AngularFirestore) { }
+  constructor(private router: Router) {
+    if (this.router.getCurrentNavigation()) {
+      this.item = this.router.getCurrentNavigation().extras;
+    }
+  }
 
   async ngOnInit() {
-    const res = await this.db.doc<round>('/games/' + this.id).ref.get();
-    this.round = res.data();
-    this.roundName = this.round.CourseName;
-    this.roundPar = this.round.CoursePar;
-    this.roundDate = this.round.Date;
-    this.roundScores = this.round.Scores;
+    this.selectedDate = this.item.Date.toDate();
+
+  }
+
+  scoreBySection() {
+    let numSections = this.item.Scores.length / 9;
+
+
+
   }
 
 }

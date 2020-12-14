@@ -19,9 +19,8 @@
   </ion-fab>
   <div class="course_cards">
     <div class="list" *ngFor="let round of rounds">
-      <app-course-round-cards [routerLink]="'/course-round-info/' + round.payload.doc.id"
-        course_name={{round.payload.doc.data().CourseName}} date={{round.payload.doc.data().Date.toDate()}}
-        shot={{totalShotSum(round.payload.doc.data().Scores)}} par={{round.payload.doc.data().CoursePar}}>
+      <app-course-round-cards (click)="goToCourseInfo(round)" course_name={{round.CourseName}}
+        date={{round.Date.toDate()}} shot={{totalShotSum(round.Scores)}} par={{round.CoursePar}}>
       </app-course-round-cards>
     </div>
   </div>

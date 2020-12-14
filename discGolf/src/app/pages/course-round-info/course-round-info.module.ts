@@ -7,14 +7,19 @@ import { IonicModule } from '@ionic/angular';
 import { CourseRoundInfoPageRoutingModule } from './course-round-info-routing.module';
 
 import { CourseRoundInfoPage } from './course-round-info.page';
+import { ComponentsModule } from 'src/app/components/components.module';
+
+
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    CourseRoundInfoPageRoutingModule
+    CourseRoundInfoPageRoutingModule,
+    ComponentsModule,
+
   ],
   declarations: [CourseRoundInfoPage]
 })
-export class CourseRoundInfoPageModule {}
+export class CourseRoundInfoPageModule { }
