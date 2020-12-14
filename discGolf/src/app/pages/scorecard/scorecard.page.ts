@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 
 interface Round { Date: any; Scores: string[]; CourseName: string; CoursePar: number; }
 
@@ -18,14 +19,16 @@ export class ScorecardPage implements OnInit {
   //declaring the coursename and par for that course parameters from new-game user input - maybe later pulled from course api - also will pass username
   courseName: string;
   coursePar: number;
+  numberBaskets: number;
 
-  constructor(private db: AngularFirestore, private actRt: ActivatedRoute) {
+  constructor(private db: AngularFirestore, private actRt: ActivatedRoute, private router: Router) {
   }
 
   ngOnInit() {
     //sets courseName and coursePar to incoming parameters
     this.courseName = this.actRt.snapshot.paramMap.get('courseName');
     this.coursePar = parseInt(this.actRt.snapshot.paramMap.get('coursePar'));
+    this.numberBaskets = parseInt(this.actRt.snapshot.paramMap.get('numberBaskets'));
   }
 
   //functions for increase, decrease, next buttons on the page
@@ -84,6 +87,7 @@ export class ScorecardPage implements OnInit {
       CourseName: this.courseName,
       CoursePar: this.coursePar,
     });
+    this.router.navigateByUrl("/home");
   }
 
 
