@@ -5,13 +5,15 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { ScorecardPageRoutingModule } from './scorecard-routing.module';
 import { ScorecardPage } from './scorecard.page';
+import { ComponentsModule } from 'src/app/components/components.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    ScorecardPageRoutingModule
+    ScorecardPageRoutingModule,
+    ComponentsModule
   ],
   declarations: [ScorecardPage]
 })

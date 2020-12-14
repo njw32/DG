@@ -13,8 +13,7 @@ export class ScorecardPage implements OnInit {
   //initialize score and listOfScores per hole
   score: string = '0';
   listOfScores: string[] = [];
-  listOfColors: string[] = [];
-  totalParDifference: number;
+  //totalParDifference: number;
 
   //declaring the coursename and par for that course parameters from new-game user input - maybe later pulled from course api - also will pass username
   courseName: string;
@@ -51,16 +50,6 @@ export class ScorecardPage implements OnInit {
   }
 
   nextHole() {
-    if (parseInt(this.score) > 0) {
-      this.listOfColors.push("danger");
-    }
-    else if (parseInt(this.score) < 0) {
-      this.listOfColors.push("success");
-    }
-    else {
-      this.listOfColors.push("medium");
-    }
-
     this.listOfScores.push(this.score);
     this.score = "0";
   }

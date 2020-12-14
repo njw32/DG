@@ -1,0 +1,19 @@
+// overall card format
+ion-card{
+  width: 25vw;
+  height: 25vw;
+  margin-bottom: -5vw;
+  text-align: center;
+}
+
+// card header format
+ion-card-header{
+  font-weight: bold;
+  font-size: 4.5vw;
+  text-decoration: underline;
+}
+
+// card content format
+ion-card-content{
+  font-size: 5vw;
+}

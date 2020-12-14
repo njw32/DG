@@ -4,6 +4,12 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="new-game"></ion-back-button>
     </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button class="submitButton" *ngIf="listOfScores.length > 8" (click)="submitCard()">End Game
+        <ion-icon slot="start" name="close-outline"></ion-icon>
+        <ion-icon slot="end" name="close-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -11,7 +17,7 @@
   <ion-grid class="cardGrid">
     <ion-row>
       <ion-col>
-        <button class="submitButton" *ngIf="listOfScores.length > 8" (click)="submitCard()">Game Complete</button>
+        <!--<button class="submitButton" *ngIf="listOfScores.length > 8" (click)="submitCard()">Game Complete</button>-->
       </ion-col>
       <ion-col>
         <div class="holeCard">
@@ -49,14 +55,8 @@
         </button>
       </ion-col>
     </ion-row>
-
     <ion-row class="cardHolder" *ngFor="let sc of listOfScores; let i = index;">
-      <ion-col>
-        <ion-card class="card" color={{listOfColors[i]}}>
-          <ion-card-header>Hole {{i + 1}}</ion-card-header>
-          <ion-card-content>{{sc}}</ion-card-content>
-        </ion-card>
-      </ion-col>
+      <app-score-board scoreValue={{sc}} holeNumber={{i}}></app-score-board>
     </ion-row>
   </ion-grid>
 </ion-content>

@@ -13,10 +13,15 @@ export class HomePage {
   ) { }
 
   //reading in the games in the database storing to variable this.rounds which is called in html
+  // async ngOnInit() {
+  //   this.db.collection('games', ref => ref.orderBy('Date')).valueChanges().subscribe(res => {
+  //     this.rounds = res;
+  //     console.log(this.rounds);
+  //   });
+  // }
   async ngOnInit() {
-    this.db.collection('games', ref => ref.orderBy('Date')).valueChanges().subscribe(res => {
+    this.db.collection('games').snapshotChanges().subscribe(res => {
       this.rounds = res;
-      console.log(this.rounds);
     });
   }
 

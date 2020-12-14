@@ -31,7 +31,10 @@ const routes: Routes = [
     path: 'disc/:id',
     loadChildren: () => import('./pages/disc/disc.module').then(m => m.DiscPageModule)
   },
-
+  {
+    path: 'course-round-info',
+    loadChildren: () => import('./pages/course-round-info/course-round-info.module').then(m => m.CourseRoundInfoPageModule)
+  }
 
 ];
 
