@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { NavigationExtras, Router } from '@angular/router';
+import { reverse } from 'dns';
 
 @Component({
   selector: 'app-home',
@@ -25,7 +26,7 @@ export class HomePage {
 
   //reading in the games in the database storing to variable this.rounds which is called in html
   async ngOnInit() {
-    this.db.collection('games', ref => ref.orderBy('Date')).valueChanges().subscribe(res => {
+    this.db.collection('games', ref => ref.orderBy('Date', "desc")).valueChanges().subscribe(res => {
       this.rounds = res;
       console.log(this.rounds);
     });
