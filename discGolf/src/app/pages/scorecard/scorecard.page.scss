@@ -1,11 +1,4 @@
-ion-toolbar{
-  --background: rgb(62, 136, 136);
-  --color: white;
-}
 
-ion-content{
-  --ion-background-color: rgb(224, 236, 236);
-}
 .arrowContent{
   align-items: center;
 }
@@ -58,22 +51,26 @@ ion-content{
 
 .next{
   float: right;
-  font-size: 5vw;
-  background-color: lightblue;
+  --background: lightblue;
+  --border-color: lightblue;
+  --color: black;
+  font-size: 4vw;
   border-radius: 12px;
   margin-right: 2vw;
 }
 
 .back{
-  font-size: 5vw;
-  background-color: lightblue;
+  --background: lightblue;
+  --border-color: lightblue;
+  --color: black;
+  font-size: 4vw;
   border-radius: 12px;
   margin-left: 2vw;
 }
 
 .holeNumber{
   font-size: 6vw;
-  //margin-bottom: 3vw;
+  margin-bottom: 4vw;
 }
 
 .cardHolder{

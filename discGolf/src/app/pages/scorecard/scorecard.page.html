@@ -42,17 +42,19 @@
 
     <ion-row class="textDiv">
       <ion-col>
-        <button class="back" *ngIf="listOfScores.length >= 1" (click)="previousHole()">Back
-          <ion-icon name="arrow-back-outline"></ion-icon>
-        </button>
+        <ion-button class="back" size="small" fill="outline" *ngIf="listOfScores.length >= 1" (click)="previousHole()">
+          Back
+          <ion-icon slot="start" name="arrow-back-outline"></ion-icon>
+        </ion-button>
       </ion-col>
       <ion-col>
         <h3 class="holeNumber" *ngIf="listOfScores.length < numberBaskets">Hole {{listOfScores.length + 1}}</h3>
       </ion-col>
       <ion-col>
-        <button class="next" *ngIf="listOfScores.length < numberBaskets" (click)="nextHole()">Next
-          <ion-icon name="arrow-forward-outline"></ion-icon>
-        </button>
+        <ion-button class="next" size="small" fill="outline" *ngIf="listOfScores.length < numberBaskets"
+          (click)="nextHole()">Next
+          <ion-icon slot="end" name="arrow-forward-outline"></ion-icon>
+        </ion-button>
       </ion-col>
     </ion-row>
     <ion-row class="cardHolder" *ngFor="let sc of listOfScores; let i = index;">

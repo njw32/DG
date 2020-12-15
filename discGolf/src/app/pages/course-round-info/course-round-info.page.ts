@@ -10,24 +10,29 @@ import { Router } from '@angular/router';
 
 export class CourseRoundInfoPage implements OnInit {
   selectedDate: Date;
-  item: any;
+  roundInfo: any;
 
   constructor(private router: Router) {
     if (this.router.getCurrentNavigation()) {
-      this.item = this.router.getCurrentNavigation().extras;
+      this.roundInfo = this.router.getCurrentNavigation().extras;
     }
   }
 
   async ngOnInit() {
-    this.selectedDate = this.item.Date.toDate();
+    this.selectedDate = this.roundInfo.Date.toDate();
 
   }
 
   scoreBySection() {
-    let numSections = this.item.Scores.length / 9;
-
-
+    let numSections = this.roundInfo.Scores.length / 9;
 
   }
 
+  totalShotSum(shot_array) {
+    for (let i = 0; i < shot_array.length; i++) {
+      shot_array[i] = parseInt(shot_array[i])
+    }
+    let total_sum = shot_array.reduce((accumulatedValue, currentValue) => accumulatedValue + currentValue, 0)
+    return total_sum;
+  }
 }
