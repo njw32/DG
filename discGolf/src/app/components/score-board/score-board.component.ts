@@ -1,5 +1,7 @@
 import { Component, OnInit, Input, Output } from '@angular/core';
 
+//component displays cards per basket - determines color of card
+
 @Component({
   selector: 'app-score-board',
   templateUrl: './score-board.component.html',

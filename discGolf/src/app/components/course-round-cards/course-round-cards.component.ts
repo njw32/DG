@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 
+//component for displaying round cards
+
 @Component({
   selector: 'app-course-round-cards',
   templateUrl: './course-round-cards.component.html',

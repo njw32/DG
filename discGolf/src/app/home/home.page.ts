@@ -30,11 +30,6 @@ export class HomePage {
       console.log(this.rounds);
     });
   }
-  // async ngOnInit() {
-  //   this.db.collection('games').snapshotChanges().subscribe(res => {
-  //     this.rounds = res;
-  //   });
-  // }
 
   // returns the sum of number values from an array
   // reference: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce
