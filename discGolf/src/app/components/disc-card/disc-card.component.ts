@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 
+//component for displaying the disc cards
 @Component({
   selector: 'app-disc-card',
   templateUrl: './disc-card.component.html',
