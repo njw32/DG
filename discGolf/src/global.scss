@@ -24,3 +24,15 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+
+// darker green toolbar
+ion-toolbar{
+  --background: rgb(62, 136, 136);
+  --color: white;
+}
+
+// lighter green background
+ion-content{
+  --ion-background-color: rgb(224, 236, 236);
+}
