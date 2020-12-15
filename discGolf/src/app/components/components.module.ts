@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { CourseRoundCardsComponent } from './course-round-cards/course-round-cards.component';
@@ -19,6 +19,7 @@ const CustomComponents =
     CommonModule
   ],
   exports: [CustomComponents],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class ComponentsModule { }
 
