@@ -14,7 +14,6 @@ export class ScorecardPage implements OnInit {
   //initialize score and listOfScores per hole
   score: string = '0';
   listOfScores: string[] = [];
-  //totalParDifference: number;
 
   //declaring the coursename and par for that course parameters from new-game user input - maybe later pulled from course api - also will pass username
   courseName: string;
@@ -70,12 +69,6 @@ export class ScorecardPage implements OnInit {
       return "over";
     }
   }
-
-  // getParDifferences() {
-  //   parseInt(this.score) + this.totalParDifference;
-  //   return this.totalParDifference;
-
-  // }
 
 
   //submit function - writes to db
