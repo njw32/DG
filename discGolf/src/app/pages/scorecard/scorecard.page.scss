@@ -5,8 +5,9 @@
 
 .holeNumber{
   text-align: center;
-  //margin-top: 10vh;
 }
+
+// overall arrows and number div
 .holeCard{
   text-align: center;
   width: 30vw;
@@ -34,16 +35,9 @@
   color: red;
 }
 
-
+// bar with next/back buttons and hole number text
 .textDiv{
   align-items: center;
-  //background-color: rgb(62, 136, 136);
-  //display: inline-block;
-  //width: 100%;
-  //vertical-align: middle;
-
-  //outline-color: rgb(62, 136, 136);
-  //outline-style: solid;
   border-top: 0.75px solid rgb(62, 136, 136);
   border-bottom: 0.75px solid rgb(62, 136, 136);
 }
@@ -73,6 +67,7 @@
   margin-bottom: 4vw;
 }
 
+// individual colored hole cards
 .cardHolder{
   display: inline-block;
   margin-left: 1.5vw;
@@ -81,6 +76,7 @@
   justify-content: center;
 }
 
+// submit button
 .submitButton{
   font-size: 3vw;
   color: white;
@@ -88,6 +84,9 @@
   background-color: #eb445a;
   border-radius: 8px;
   margin-right: 2vw;
+}
 
-
+// map button
+.mapButton {
+  margin-right: 4vw;
 }

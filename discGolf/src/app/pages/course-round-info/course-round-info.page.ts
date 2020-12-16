@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
 
 @Component({
@@ -12,22 +11,19 @@ export class CourseRoundInfoPage implements OnInit {
   selectedDate: Date;
   roundInfo: any;
 
+  // retrieve the info from the "home" page card
   constructor(private router: Router) {
     if (this.router.getCurrentNavigation()) {
       this.roundInfo = this.router.getCurrentNavigation().extras;
     }
   }
 
+  // apply the proper date format
   async ngOnInit() {
     this.selectedDate = this.roundInfo.Date.toDate();
-
   }
 
-  scoreBySection() {
-    let numSections = this.roundInfo.Scores.length / 9;
-
-  }
-
+  // finds the sum of all the shots
   totalShotSum(shot_array) {
     for (let i = 0; i < shot_array.length; i++) {
       shot_array[i] = parseInt(shot_array[i])
