@@ -1,3 +1,4 @@
+// individual hole cards
 .cardHolder{
   display: inline-block;
   margin-left: 1.5vw;
@@ -6,6 +7,7 @@
   justify-content: center;
 }
 
+// "Total Par Difference" header
 .scoreTitle{
   text-align: center;
   padding-top: 1vh;
@@ -16,16 +18,19 @@
   color: rgb(62, 136, 136);
 }
 
+// date, time row formatting
 .topDetails{
   text-align: center;
 }
 
+// number of holes, total par formatting
 .bottomDetails{
   text-align: center;
   padding-bottom: 2vh;
   border-bottom: 1px solid rgb(62, 136, 136);
 }
 
+// underlined headers formatting
 .topDetailsHeader{
   text-decoration: underline;
   text-decoration-color: rgb(62, 136, 136);

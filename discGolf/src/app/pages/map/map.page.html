@@ -1,0 +1,13 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Map</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="scorecard"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <br>
+  <agm-map [latitude]="lat" [longitude]="long" [zoom]="15"></agm-map>
+</ion-content>
