@@ -34,7 +34,11 @@ const routes: Routes = [
   {
     path: 'course-round-info',
     loadChildren: () => import('./pages/course-round-info/course-round-info.module').then(m => m.CourseRoundInfoPageModule)
+  },  {
+    path: 'map',
+    loadChildren: () => import('./pages/map/map.module').then( m => m.MapPageModule)
   }
+
 
 ];
 
