@@ -8,7 +8,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'login',
     pathMatch: 'full'
   },
   {
@@ -34,9 +34,10 @@ const routes: Routes = [
   {
     path: 'course-round-info',
     loadChildren: () => import('./pages/course-round-info/course-round-info.module').then(m => m.CourseRoundInfoPageModule)
-  },  {
+  },
+  {
     path: 'login',
-    loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)
+    loadChildren: () => import('./pages/login/login.module').then(m => m.LoginPageModule)
   }
 
 
