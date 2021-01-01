@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { NavigationExtras, Router } from '@angular/router';
+import firebase from 'firebase/app';
 
 @Component({
   selector: 'app-home',
@@ -28,6 +29,14 @@ export class HomePage {
     this.db.collection('games', ref => ref.orderBy('Date', "desc")).valueChanges().subscribe(res => {
       this.rounds = res;
       console.log(this.rounds);
+    });
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        // User logged in already or has just logged in.
+        console.log(user.uid);
+      } else {
+        // User not logged in or has just logged out.
+      }
     });
   }
 
