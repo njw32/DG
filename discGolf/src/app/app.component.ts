@@ -9,6 +9,10 @@ import { firebaseConfig } from './credentials';
 })
 export class AppComponent {
   constructor() {
+    this.initializeApp();
+  }
+
+  initializeApp() {
     firebase.initializeApp(firebaseConfig);
   }
 }
