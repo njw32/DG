@@ -39,6 +39,7 @@ export class DiscPage implements OnInit {
   constructor(private router: Router, private db: AngularFirestore) {
   }
   async ngOnInit() {
+    //get information to display current information on form
     const res = await this.db.doc<disc>(`users/${firebase.auth().currentUser.uid}/discs/${this.id}`).ref.get();
     this.disc = res.data();
     this.discName = this.disc.Name;

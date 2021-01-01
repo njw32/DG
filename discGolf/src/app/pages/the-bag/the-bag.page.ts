@@ -12,16 +12,8 @@ export class TheBagPage implements OnInit {
   constructor(private db: AngularFirestore) { }
 
   async ngOnInit() {
-    firebase.auth().onAuthStateChanged((user) => {
-      if (user) {
-        // User logged in already or has just logged in.
-        this.db.collection(`users/${user.uid}/discs`).snapshotChanges().subscribe(res => {
-          this.discs = res;
-        });
-      } else {
-        // User not logged in or has just logged out.
-      }
+    this.db.collection(`users/${firebase.auth().currentUser.uid}/discs`).snapshotChanges().subscribe(res => {
+      this.discs = res;
     });
-
   }
 }

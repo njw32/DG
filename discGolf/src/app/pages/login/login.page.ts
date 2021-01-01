@@ -25,7 +25,7 @@ export class LoginPage implements OnInit {
       await this.authSvc.loginUser(this.email, this.password)
       this.router.navigateByUrl('home');
     } catch (error) {
-      console.log(error);
+      //error alert
       const alert = await this.alertCtrl.create({
         message: error,
         buttons: [{
@@ -37,6 +37,7 @@ export class LoginPage implements OnInit {
     }
   }
 
+  //create account alert with small form
   async createAccountPop() {
     const alert = await this.alertCtrl.create({
       header: 'CREATE NEW ACCOUNT',
@@ -67,6 +68,7 @@ export class LoginPage implements OnInit {
     alert.present();
   }
 
+  //create account connects with firebase
   async createAccount(email: string, password: string): Promise<void> {
     try {
       await this.authSvc.signupUser(email, password);
@@ -83,6 +85,7 @@ export class LoginPage implements OnInit {
     }
   }
 
+  //TODO - reset Password - need to create Button
   resetPassword(): void {
     if (!this.email) {
       console.log('ALERT')

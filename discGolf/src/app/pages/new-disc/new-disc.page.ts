@@ -10,7 +10,7 @@ import firebase from 'firebase/app';
   styleUrls: ['./new-disc.page.scss'],
 })
 export class NewDiscPage implements OnInit {
-
+  //to DO - clean up display when not entered
   discName: string;
   discManufacturer: string;
   discPlastic: string;
@@ -28,26 +28,17 @@ export class NewDiscPage implements OnInit {
   }
 
   submitDisc() {
-    firebase.auth().onAuthStateChanged((user) => {
-      if (user) {
-        // User logged in already or has just logged in.
-        this.db.collection(`users/${user.uid}/discs`).add({
-          Name: this.discName,
-          Manufacturer: this.discManufacturer,
-          Plastic: this.discPlastic,
-          Type: this.discType,
-          Speed: this.discSpeed,
-          Glide: this.discGlide,
-          Turn: this.discTurn,
-          Fade: this.discFade,
-          Weight: this.discWeight,
-        });
-        this.router.navigateByUrl('/the-bag');
-      } else {
-        // User not logged in or has just logged out.
-      }
+    this.db.collection(`users/${firebase.auth().currentUser.uid}/discs`).add({
+      Name: this.discName,
+      Manufacturer: this.discManufacturer,
+      Plastic: this.discPlastic,
+      Type: this.discType,
+      Speed: this.discSpeed,
+      Glide: this.discGlide,
+      Turn: this.discTurn,
+      Fade: this.discFade,
+      Weight: this.discWeight,
     });
-
-
+    this.router.navigateByUrl('/the-bag');
   }
 }
