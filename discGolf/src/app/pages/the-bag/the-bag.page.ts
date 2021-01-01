@@ -15,7 +15,6 @@ export class TheBagPage implements OnInit {
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
         // User logged in already or has just logged in.
-        console.log(user.uid);
         this.db.collection(`users/${user.uid}/discs`).snapshotChanges().subscribe(res => {
           this.discs = res;
         });
