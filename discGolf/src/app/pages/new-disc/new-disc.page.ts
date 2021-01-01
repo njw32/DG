@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
+import firebase from 'firebase/app';
 
 
 @Component({
@@ -18,25 +19,35 @@ export class NewDiscPage implements OnInit {
   discGlide: number;
   discTurn: number;
   discFade: number;
-  discWeight: number;
+  discWeight: number = null;
 
-  constructor(private db: AngularFirestore, private router: Router) { }
+  constructor(private db: AngularFirestore, private router: Router) {
+  }
 
   ngOnInit() {
   }
 
   submitDisc() {
-    this.db.collection("discs").add({
-      Name: this.discName,
-      Manufacturer: this.discManufacturer,
-      Plastic: this.discPlastic,
-      Type: this.discType,
-      Speed: this.discSpeed,
-      Glide: this.discGlide,
-      Turn: this.discTurn,
-      Fade: this.discFade,
-      Weight: this.discWeight,
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        // User logged in already or has just logged in.
+        this.db.collection(`users/${user.uid}/discs`).add({
+          Name: this.discName,
+          Manufacturer: this.discManufacturer,
+          Plastic: this.discPlastic,
+          Type: this.discType,
+          Speed: this.discSpeed,
+          Glide: this.discGlide,
+          Turn: this.discTurn,
+          Fade: this.discFade,
+          Weight: this.discWeight,
+        });
+        this.router.navigateByUrl('/the-bag');
+      } else {
+        // User not logged in or has just logged out.
+      }
     });
-    this.router.navigateByUrl('/the-bag');
+
+
   }
 }

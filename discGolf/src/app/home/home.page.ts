@@ -1,6 +1,14 @@
 import { Component } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { NavigationExtras, Router } from '@angular/router';
+import firebase from 'firebase/app';
+
+//TODO
+//analystics and statistics for games played
+//new game total par??
+//database for courses
+//display discs differently when null values
+//delete from games played
 
 @Component({
   selector: 'app-home',
@@ -25,10 +33,18 @@ export class HomePage {
 
   //reading in the games in the database storing to variable this.rounds which is called in html
   async ngOnInit() {
-    this.db.collection('games', ref => ref.orderBy('Date', "desc")).valueChanges().subscribe(res => {
-      this.rounds = res;
-      console.log(this.rounds);
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        // User logged in already or has just logged in.
+        this.db.collection(`users/${user.uid}/games`, ref => ref.orderBy('Date', "desc")).valueChanges().subscribe(res => {
+          this.rounds = res;
+        });
+      } else {
+        // User not logged in or has just logged out.
+      }
     });
+
+
   }
 
   // returns the sum of number values from an array

@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form>
+    <label>EMAIL</label>&nbsp;
+    <input type="text" [(ngModel)]="email" name="email">
+    <br>
+    <label>PASSWORD</label>&nbsp;
+    <input type="text" [(ngModel)]="password" name="pass" type="password">
+    <br>
+    <ion-button (click)="onSubmit()">LOGIN</ion-button>
+    <br>
+    <ion-button (click)="createAccountPop()">CREATE NEW ACCOUNT</ion-button>
+  </form>
+</ion-content>
