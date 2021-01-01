@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
+import firebase from 'firebase/app';
 
 interface Round { Date: any; Scores: string[]; CourseName: string; CoursePar: number; }
 
@@ -74,13 +75,21 @@ export class ScorecardPage implements OnInit {
   //submit function - writes to db
   submitCard() {
     console.log("submitted");
-    this.db.collection<Round>("games").add({
-      Date: new Date(),
-      Scores: this.listOfScores,
-      CourseName: this.courseName,
-      CoursePar: this.coursePar,
-    });
-    this.router.navigateByUrl("/home");
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        // User logged in already or has just logged in.
+        this.db.collection<Round>(`users/${user.uid}/games`).add({
+          Date: new Date(),
+          Scores: this.listOfScores,
+          CourseName: this.courseName,
+          CoursePar: this.coursePar,
+        });
+        this.router.navigateByUrl("/home");
+      } else {
+        // User not logged in or has just logged out.
+      }
+    })
+
   }
 
 

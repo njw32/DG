@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { LoadingController } from '@ionic/angular';
 import { AlertController } from '@ionic/angular';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,7 @@ import { AlertController } from '@ionic/angular';
 export class LoginPage implements OnInit {
   email: string;
   password: string;
-  constructor(private alertCtrl: AlertController, private authSvc: AuthService, private router: Router, public loadingCrtl: LoadingController) {
+  constructor(private alertCtrl: AlertController, private authSvc: AuthService, private router: Router, public loadingCrtl: LoadingController, private db: AngularFirestore) {
   }
 
   ngOnInit() {
@@ -58,7 +59,7 @@ export class LoginPage implements OnInit {
         {
           text: 'Create Account',
           handler: data => {
-            this.createAccount(data.email, data.password)
+            this.createAccount(data.email, data.password);
           }
         }
       ]

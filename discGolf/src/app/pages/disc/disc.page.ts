@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
+import firebase from 'firebase/app';
 
 //page for updating and deleting discs and displaying them on their on page
 interface disc {
@@ -35,10 +36,10 @@ export class DiscPage implements OnInit {
   discFade: number;
   discWeight: number;
 
-  constructor(private router: Router, private db: AngularFirestore) { }
-
+  constructor(private router: Router, private db: AngularFirestore) {
+  }
   async ngOnInit() {
-    const res = await this.db.doc<disc>('/discs/' + this.id).ref.get();
+    const res = await this.db.doc<disc>(`users/${firebase.auth().currentUser.uid}/discs/${this.id}`).ref.get();
     this.disc = res.data();
     this.discName = this.disc.Name;
     this.discManufacturer = this.disc.Manufacturer;
@@ -49,15 +50,16 @@ export class DiscPage implements OnInit {
     this.discTurn = this.disc.Turn;
     this.discFade = this.disc.Fade;
     this.discWeight = this.disc.Weight;
+
   }
 
   deleteDisc() {
-    this.db.doc('/discs/' + this.id).delete();
+    this.db.doc(`users/${firebase.auth().currentUser.uid}/discs/${this.id}`).delete();
     this.router.navigateByUrl('/the-bag');
   }
 
   editDisc() {
-    this.db.doc('/discs/' + this.id).update({
+    this.db.doc(`users/${firebase.auth().currentUser.uid}/discs/${this.id}`).update({
       Name: this.discName,
       Manufacturer: this.discManufacturer,
       Plastic: this.discPlastic,

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
+import firebase from 'firebase/app';
 
 @Component({
   selector: 'app-the-bag',
@@ -11,8 +12,17 @@ export class TheBagPage implements OnInit {
   constructor(private db: AngularFirestore) { }
 
   async ngOnInit() {
-    this.db.collection('discs').snapshotChanges().subscribe(res => {
-      this.discs = res;
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        // User logged in already or has just logged in.
+        console.log(user.uid);
+        this.db.collection(`users/${user.uid}/discs`).snapshotChanges().subscribe(res => {
+          this.discs = res;
+        });
+      } else {
+        // User not logged in or has just logged out.
+      }
     });
+
   }
 }
