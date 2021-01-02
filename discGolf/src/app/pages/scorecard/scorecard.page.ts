@@ -74,22 +74,13 @@ export class ScorecardPage implements OnInit {
 
   //submit function - writes to db
   submitCard() {
-    console.log("submitted");
-    firebase.auth().onAuthStateChanged((user) => {
-      if (user) {
-        // User logged in already or has just logged in.
-        this.db.collection<Round>(`users/${user.uid}/games`).add({
-          Date: new Date(),
-          Scores: this.listOfScores,
-          CourseName: this.courseName,
-          CoursePar: this.coursePar,
-        });
-        this.router.navigateByUrl("/home");
-      } else {
-        // User not logged in or has just logged out.
-      }
-    })
-
+    this.db.collection<Round>(`users/${firebase.auth().currentUser.uid}/games`).add({
+      Date: new Date(),
+      Scores: this.listOfScores,
+      CourseName: this.courseName,
+      CoursePar: this.coursePar,
+    });
+    this.router.navigateByUrl("/home");
   }
 
 

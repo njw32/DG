@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
 import firebase from 'firebase/app';
+import { AlertController } from '@ionic/angular';
+
 
 //page for updating and deleting discs and displaying them on their on page
 interface disc {
@@ -36,9 +38,10 @@ export class DiscPage implements OnInit {
   discFade: number;
   discWeight: number;
 
-  constructor(private router: Router, private db: AngularFirestore) {
+  constructor(private alertCtrl: AlertController, private router: Router, private db: AngularFirestore) {
   }
   async ngOnInit() {
+    //get information to display current information on form
     const res = await this.db.doc<disc>(`users/${firebase.auth().currentUser.uid}/discs/${this.id}`).ref.get();
     this.disc = res.data();
     this.discName = this.disc.Name;
@@ -53,23 +56,53 @@ export class DiscPage implements OnInit {
 
   }
 
-  deleteDisc() {
-    this.db.doc(`users/${firebase.auth().currentUser.uid}/discs/${this.id}`).delete();
-    this.router.navigateByUrl('/the-bag');
+  async deleteDisc() {
+    const alert = await this.alertCtrl.create({
+      message: `Delete ${this.discName} from your bag?`,
+      buttons: [
+        {
+          text: 'Ok',
+          handler: () => {
+            this.db.doc(`users/${firebase.auth().currentUser.uid}/discs/${this.id}`).delete();
+            this.router.navigateByUrl('/the-bag');
+          }
+        },
+        {
+          text: 'Cancel',
+          role: 'cancel'
+        },
+      ],
+    });
+    alert.present();
   }
 
-  editDisc() {
-    this.db.doc(`users/${firebase.auth().currentUser.uid}/discs/${this.id}`).update({
-      Name: this.discName,
-      Manufacturer: this.discManufacturer,
-      Plastic: this.discPlastic,
-      Weight: this.discWeight,
-      Type: this.discType,
-      Speed: this.discSpeed,
-      Glide: this.discGlide,
-      Turn: this.discTurn,
-      Fade: this.discFade
-    })
-    this.router.navigateByUrl('/the-bag');
+  async editDisc() {
+    const alert = await this.alertCtrl.create({
+      message: `Confirm changes to ${this.discName}?`,
+      buttons: [
+        {
+          text: 'Ok',
+          handler: () => {
+            this.db.doc(`users/${firebase.auth().currentUser.uid}/discs/${this.id}`).update({
+              Name: this.discName,
+              Manufacturer: this.discManufacturer,
+              Plastic: this.discPlastic,
+              Weight: this.discWeight,
+              Type: this.discType,
+              Speed: this.discSpeed,
+              Glide: this.discGlide,
+              Turn: this.discTurn,
+              Fade: this.discFade
+            })
+            this.router.navigateByUrl('/the-bag');
+          }
+        },
+        {
+          text: 'Cancel',
+          role: 'cancel'
+        }
+      ]
+    });
+    alert.present();
   }
 }

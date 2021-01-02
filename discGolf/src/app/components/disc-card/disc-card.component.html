@@ -6,11 +6,13 @@
   <ion-card-content>
     <ion-grid>
       <ion-row>
-        <p class="data">{{discManufacturer }} --- {{ discPlastic }} --- {{discType}}</p>
+        <p *ngIf="discManufacturer" class="data">{{ discManufacturer }}</p> &nbsp;
+        <p *ngIf="discPlastic" class="data"> --- {{ discPlastic }} </p>
+        <p *ngIf="discType" class="data"> --- {{ discType }}</p>
       </ion-row>
       <ion-row>
-        <p class="smallData"> {{discSpeed}} {{discGlide}} {{discTurn}} {{discFade}} &nbsp; &nbsp; {{ discWeight }}gs
-        </p>
+        <p class="smallData"> {{discSpeed}} {{discGlide}} {{discTurn}} {{discFade}} &nbsp; &nbsp; {{ discWeight }}</p>
+        <p *ngIf="discWeight" class="smallData">gs</p>
       </ion-row>
     </ion-grid>
   </ion-card-content>
