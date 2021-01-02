@@ -14,16 +14,16 @@ export class CourseRoundInfoPage implements OnInit {
   constructor(private router: Router) {
     if (this.router.getCurrentNavigation()) {
       this.roundInfo = this.router.getCurrentNavigation().extras;
+      console.log(this.roundInfo.payload.doc.id);
     }
   }
 
   async ngOnInit() {
-    this.selectedDate = this.roundInfo.Date.toDate();
-
+    this.selectedDate = this.roundInfo.payload.doc.data().Date.toDate();
   }
 
   scoreBySection() {
-    let numSections = this.roundInfo.Scores.length / 9;
+    let numSections = this.roundInfo.payload.doc.data().Scores.length / 9;
 
   }
 

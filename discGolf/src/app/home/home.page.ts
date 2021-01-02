@@ -7,7 +7,6 @@ import firebase from 'firebase/app';
 //analystics and statistics for games played
 //new game total par??
 //database for courses
-//display discs differently when null values
 //delete from games played
 
 @Component({
@@ -36,7 +35,7 @@ export class HomePage {
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
         // User logged in already or has just logged in.
-        this.db.collection(`users/${user.uid}/games`, ref => ref.orderBy('Date', "desc")).valueChanges().subscribe(res => {
+        this.db.collection(`users/${user.uid}/games`, ref => ref.orderBy('Date', "desc")).snapshotChanges().subscribe(res => {
           this.rounds = res;
         });
       } else {

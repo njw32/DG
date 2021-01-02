@@ -29,5 +29,12 @@
 .topDetailsHeader{
   text-decoration: underline;
   text-decoration-color: rgb(62, 136, 136);
-
+}
+.trash{
+  align-items: center;
+  font-size: 22px;
+}
+.deleteButton{
+  background-color: transparent;
+  color: white;
 }
