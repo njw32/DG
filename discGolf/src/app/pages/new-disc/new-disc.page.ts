@@ -13,7 +13,7 @@ export class NewDiscPage implements OnInit {
   //to DO - clean up display when not entered
   discName: string;
   discManufacturer: string;
-  discPlastic: string;
+  discPlastic: string = null;
   discType: string;
   discSpeed: number;
   discGlide: number;

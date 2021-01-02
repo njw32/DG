@@ -23,7 +23,7 @@
           <label> Disc Manufacturer </label>
         </ion-col>
         <ion-col class="rightSide">
-          <input type="text" [(ngModel)]="discManufacturer" name="manufacturer">
+          <input type="text" [(ngModel)]="discManufacturer" name="manufacturer" required>
         </ion-col>
       </ion-row>
       <ion-row>
@@ -47,7 +47,7 @@
           <label> Disc Type </label>
         </ion-col>
         <ion-col class="rightSide">
-          <select [(ngModel)]="discType" name="type">
+          <select [(ngModel)]="discType" name="type" required>
             <option value="Driver">Driver</option>
             <option value="Fairway">Fairway</option>
             <option value="Midrange">Midrange</option>
@@ -68,7 +68,7 @@
           <label>Glide</label>
         </ion-col>
         <ion-col class="rightSide">
-          <input type="number" [(ngModel)]="discGlide" name="glide">
+          <input type="number" [(ngModel)]="discGlide" name="glide" required>
         </ion-col>
       </ion-row>
       <ion-row>
@@ -76,7 +76,7 @@
           <label>Turn</label>
         </ion-col>
         <ion-col class="rightSide">
-          <input type="number" [(ngModel)]="discTurn" name="turn">
+          <input type="number" [(ngModel)]="discTurn" name="turn" required>
         </ion-col>
       </ion-row>
       <ion-row>
@@ -84,7 +84,7 @@
           <label>Fade</label>
         </ion-col>
         <ion-col class="rightSide">
-          <input type="number" [(ngModel)]="discFade" name="fade">
+          <input type="number" [(ngModel)]="discFade" name="fade" required>
         </ion-col>
       </ion-row>
       <ion-button type="submit" (click)="submitDisc()" [disabled]="!f.valid">Submit Disc</ion-button>
