@@ -74,21 +74,35 @@ export class DiscPage implements OnInit {
       ],
     });
     alert.present();
-
   }
 
-  editDisc() {
-    this.db.doc(`users/${firebase.auth().currentUser.uid}/discs/${this.id}`).update({
-      Name: this.discName,
-      Manufacturer: this.discManufacturer,
-      Plastic: this.discPlastic,
-      Weight: this.discWeight,
-      Type: this.discType,
-      Speed: this.discSpeed,
-      Glide: this.discGlide,
-      Turn: this.discTurn,
-      Fade: this.discFade
-    })
-    this.router.navigateByUrl('/the-bag');
+  async editDisc() {
+    const alert = await this.alertCtrl.create({
+      message: `Confirm changes to ${this.discName}?`,
+      buttons: [
+        {
+          text: 'Ok',
+          handler: () => {
+            this.db.doc(`users/${firebase.auth().currentUser.uid}/discs/${this.id}`).update({
+              Name: this.discName,
+              Manufacturer: this.discManufacturer,
+              Plastic: this.discPlastic,
+              Weight: this.discWeight,
+              Type: this.discType,
+              Speed: this.discSpeed,
+              Glide: this.discGlide,
+              Turn: this.discTurn,
+              Fade: this.discFade
+            })
+            this.router.navigateByUrl('/the-bag');
+          }
+        },
+        {
+          text: 'Cancel',
+          role: 'cancel'
+        }
+      ]
+    });
+    alert.present();
   }
 }

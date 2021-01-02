@@ -10,7 +10,6 @@ import firebase from 'firebase/app';
   styleUrls: ['./new-disc.page.scss'],
 })
 export class NewDiscPage implements OnInit {
-  //to DO - clean up display when not entered
   discName: string;
   discManufacturer: string;
   discPlastic: string = null;
