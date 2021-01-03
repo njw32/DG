@@ -2,3 +2,17 @@ input{
   margin-bottom: 1vh;
   margin-top: 1vh;
 }
+.button{
+  --background: violet;
+  margin-bottom: 10px;
+}
+.button:hover{
+  opacity: 90%;
+}
+.label{
+  margin-left: 5px;
+  max-width: 100px;
+  min-width: 22px;
+  margin-top: 9px;
+  color: grey;
+}

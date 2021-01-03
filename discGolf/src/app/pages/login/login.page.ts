@@ -22,7 +22,7 @@ export class LoginPage implements OnInit {
 
   async onSubmit() {
     try {
-      await this.authSvc.loginUser(this.email, this.password)
+      await this.authSvc.loginUser(this.email.trim(), this.password.trim())
       this.router.navigateByUrl('home');
     } catch (error) {
       //error alert
