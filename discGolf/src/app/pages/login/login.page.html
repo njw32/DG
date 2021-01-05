@@ -5,15 +5,30 @@
 </ion-header>
 
 <ion-content>
-  <form>
-    <label>EMAIL</label>&nbsp;
-    <input type="text" [(ngModel)]="email" name="email">
-    <br>
-    <label>PASSWORD</label>&nbsp;
-    <input type="text" [(ngModel)]="password" name="pass" type="password">
-    <br>
-    <ion-button (click)="onSubmit()">LOGIN</ion-button>
-    <br>
-    <ion-button (click)="createAccountPop()">CREATE NEW ACCOUNT</ion-button>
-  </form>
+  <div>
+    <form #f="ngForm">
+      <ion-grid>
+        <ion-row>
+          <ion-col class="label">
+            <label>Email</label>
+          </ion-col>
+          <ion-col>
+            <input type="text" [(ngModel)]="email" name="email" required>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="label">
+            <label>Password</label>
+          </ion-col>
+          <ion-col>
+            <input type="text" [(ngModel)]="password" name="pass" type="password" required>
+          </ion-col>
+        </ion-row>
+        <br>
+      </ion-grid>
+      <ion-button type="submit" class="button" expand="block" (click)="onSubmit()" [disabled]="!f.valid">LOGIN
+      </ion-button>
+      <ion-button class="button" expand="block" (click)="createAccountPop()">CREATE NEW ACCOUNT</ion-button>
+    </form>
+  </div>
 </ion-content>
