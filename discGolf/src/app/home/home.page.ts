@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { NavigationExtras, Router } from '@angular/router';
+import { PopoverController } from '@ionic/angular';
 import firebase from 'firebase/app';
+import { PopoverPageComponent } from '../components/popover-page/popover-page.component';
 
 //TODO
 //analystics and statistics for games played
-//new game total par??
 //database for courses
-//delete from games played
 
 @Component({
   selector: 'app-home',
@@ -27,6 +27,7 @@ export class HomePage {
   constructor(
     private router: Router,
     private db: AngularFirestore,
+    public popoverCtrl: PopoverController,
   ) { }
 
 
@@ -61,5 +62,14 @@ export class HomePage {
   goToCourseInfo(item) {
     let navigationExtras: NavigationExtras = item;
     this.router.navigate(['/course-round-info'], navigationExtras);
+  }
+
+  async presentPopover(ev) {
+    let popover = await this.popoverCtrl.create({
+      component: PopoverPageComponent,
+      event: ev,
+      translucent: true
+    });
+    popover.present();
   }
 }

@@ -3,6 +3,9 @@
     <ion-title>
       Previous Rounds
     </ion-title>
+    <button slot="end" class="menuButton" (click)="presentPopover($event)">
+      <ion-icon class="more" ios="ellipsis-horizontal" md="ellipsis-vertical"></ion-icon>
+    </button>
   </ion-toolbar>
 </ion-header>
 
@@ -20,8 +23,7 @@
   <div class="course_cards">
     <div class="list" *ngFor="let round of rounds">
       <app-course-round-cards (click)="goToCourseInfo(round)" course_name={{round.payload.doc.data().CourseName}}
-        date={{round.payload.doc.data().Date}} shot={{totalShotSum(round.payload.doc.data().Scores)}}
-        par={{round.payload.doc.data().CoursePar}}>
+        date={{round.payload.doc.data().Date.toDate()}} shot={{totalShotSum(round.payload.doc.data().Scores)}}>
       </app-course-round-cards>
     </div>
   </div>

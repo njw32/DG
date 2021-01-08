@@ -4,7 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 import firebase from 'firebase/app';
 
-interface Round { Date: any; Scores: string[]; CourseName: string; CoursePar: number; }
+interface Round { Date: any; Scores: string[]; CourseName: string; }
 
 @Component({
   selector: 'app-scorecard',
@@ -18,7 +18,6 @@ export class ScorecardPage implements OnInit {
 
   //declaring the coursename and par for that course parameters from new-game user input - maybe later pulled from course api - also will pass username
   courseName: string;
-  coursePar: number;
   numberBaskets: number;
 
   constructor(private db: AngularFirestore, private actRt: ActivatedRoute, private router: Router) {
@@ -27,7 +26,6 @@ export class ScorecardPage implements OnInit {
   ngOnInit() {
     //sets courseName and coursePar to incoming parameters
     this.courseName = this.actRt.snapshot.paramMap.get('courseName');
-    this.coursePar = parseInt(this.actRt.snapshot.paramMap.get('coursePar'));
     this.numberBaskets = parseInt(this.actRt.snapshot.paramMap.get('numberBaskets'));
   }
 
@@ -78,7 +76,6 @@ export class ScorecardPage implements OnInit {
       Date: new Date(),
       Scores: this.listOfScores,
       CourseName: this.courseName,
-      CoursePar: this.coursePar,
     });
     this.router.navigateByUrl("/home");
   }
