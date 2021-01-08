@@ -12,7 +12,6 @@ export class CourseRoundCardsComponent implements OnInit {
   // initializes the inputs
   @Input() course_name: string;
   @Input() shot: number;
-  @Input() par: number;
   @Input() date: string;
 
   constructor() { }

@@ -28,10 +28,6 @@
         <h3 class="topDetailsHeader">Number of Holes:</h3>
         <h4>{{roundInfo.payload.doc.data().Scores.length}}</h4>
       </ion-col>
-      <ion-col>
-        <h3 class="topDetailsHeader">Total Par:</h3>
-        <h4>{{roundInfo.payload.doc.data().CoursePar}}</h4>
-      </ion-col>
     </ion-row>
     <ion-row class="cardHolder" *ngFor="let sc of roundInfo.payload.doc.data().Scores; let i = index;">
       <app-score-board scoreValue={{sc}} holeNumber={{i}}></app-score-board>

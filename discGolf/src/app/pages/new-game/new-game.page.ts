@@ -19,7 +19,7 @@ export class NewGamePage implements OnInit {
 
   //submit button takes user to scorecard with form input parameters
   goToScorecard() {
-    const dest = `/scorecard/${this.numberBaskets}/${this.courseName}/${this.coursePar}`;
+    const dest = `/scorecard/${this.numberBaskets}/${this.courseName}`;
     this.router.navigateByUrl(dest);
   }
 
