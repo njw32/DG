@@ -20,7 +20,7 @@
   <div class="course_cards">
     <div class="list" *ngFor="let round of rounds">
       <app-course-round-cards (click)="goToCourseInfo(round)" course_name={{round.payload.doc.data().CourseName}}
-        date={{round.payload.doc.data().Date}} shot={{totalShotSum(round.payload.doc.data().Scores)}}>
+        date={{round.payload.doc.data().Date.toDate()}} shot={{totalShotSum(round.payload.doc.data().Scores)}}>
       </app-course-round-cards>
     </div>
   </div>
