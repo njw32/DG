@@ -2,7 +2,7 @@ input{
   margin-bottom: 1vh;
   margin-top: 1vh;
 }
-.button{
+.buttonA{
   --background: violet;
   margin-bottom: 10px;
 }
@@ -15,4 +15,9 @@ input{
   min-width: 22px;
   margin-top: 9px;
   color: grey;
+}
+.resetButton{
+  color: blue;
+  text-decoration: underline;
+  margin-left: 15px;
 }
