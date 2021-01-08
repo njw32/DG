@@ -12,8 +12,8 @@ import { AngularFirestore } from '@angular/fire/firestore';
 })
 
 export class LoginPage implements OnInit {
-  email: string;
-  password: string;
+  email: string = localStorage.getItem("email");
+  password: string = localStorage.getItem("pass");
   constructor(private alertCtrl: AlertController, private authSvc: AuthService, private router: Router, public loadingCrtl: LoadingController, private db: AngularFirestore) {
   }
 
@@ -22,7 +22,9 @@ export class LoginPage implements OnInit {
 
   async onSubmit() {
     try {
-      await this.authSvc.loginUser(this.email.trim(), this.password.trim())
+      await this.authSvc.loginUser(this.email.trim(), this.password.trim());
+      localStorage.setItem("email", this.email.trim());
+      localStorage.setItem("pass", this.password.trim());
       this.router.navigateByUrl('home');
     } catch (error) {
       //error alert
