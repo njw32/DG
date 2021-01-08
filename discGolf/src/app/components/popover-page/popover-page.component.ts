@@ -16,12 +16,16 @@ export class PopoverPageComponent implements OnInit {
 
 
   logout() {
-    console.log('logout');
     this.router.navigateByUrl('login');
     this.viewCtrl.dismiss();
   }
 
   goToStatistics() {
-    console.log('statistics');
+    this.router.navigateByUrl('statistics');
+    this.viewCtrl.dismiss();
+  }
+
+  dismissPopover() {
+    this.viewCtrl.dismiss();
   }
 }

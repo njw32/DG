@@ -1,6 +1,12 @@
 <ion-list>
   <ion-list-header>Menu</ion-list-header>
-  <ion-item button (click)="logout()">Logout</ion-item>
-  <ion-item button (click)="goToStatistics()">Statistics</ion-item>
-  <ion-item lines="none" detail="false" button onClick="dismissPopover()">Close</ion-item>
+  <ion-item button (click)="logout()">
+    <ion-icon name="log-out"></ion-icon>&nbsp;
+    Logout
+  </ion-item>
+  <ion-item button (click)="goToStatistics()">
+    <ion-icon name="podium"></ion-icon>&nbsp;
+    Statistics
+  </ion-item>
+  <ion-item button (click)="dismissPopover()" lines="none" detail="false">Close</ion-item>
 </ion-list>
