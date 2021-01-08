@@ -87,12 +87,41 @@ export class LoginPage implements OnInit {
     }
   }
 
-  //TODO - reset Password - need to create Button
-  resetPassword(): void {
-    if (!this.email) {
-      console.log('ALERT')
-    }
-    this.authSvc.resetPassword(this.email);
-  }
 
+  async resetPassword() {
+    console.log("resetting");
+    const alert = await this.alertCtrl.create({
+      header: "Reset Password",
+      inputs: [
+        {
+          name: "email",
+          placeholder: 'sample@mail.com',
+        }
+      ],
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+        },
+        {
+          text: 'Reset',
+          handler: data => {
+            this.authSvc.resetPassword(data.email);
+            this.displayConfimation();
+          }
+        }
+      ]
+    });
+    alert.present();
+  }
+  async displayConfimation() {
+    const alert = await this.alertCtrl.create({
+      message: 'Check your email for password reset link',
+      buttons: [{
+        text: 'Ok',
+        role: 'cancel'
+      }],
+    });
+    alert.present();
+  }
 }
